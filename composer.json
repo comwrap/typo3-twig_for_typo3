@@ -12,8 +12,8 @@
         }
     ],
     "replace": {
-        "realurl": "self.version",
-        "typo3-ter/realurl": "self.version"
+        "twig_for_typo3": "self.version",
+        "typo3-ter/twig_for_typo3": "self.version"
     },
     "require": {
         "symfony/filesystem": "^2.3||^3.0",
