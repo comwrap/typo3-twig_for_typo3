@@ -18,6 +18,12 @@ namespace Comwrap\Typo3\TwigForTypo3\Twig;
 use TYPO3\CMS\Core\SingletonInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
+/**
+ * This class is a twig environment that can work together with TYPO3.
+ *
+ * It automatically adds the correct loaders, sets debug depending on the TYPO3 settings
+ * and it will set the cache directory automatically as well.
+ */
 class Environment extends \Twig_Environment implements SingletonInterface
 {
     public function __construct()
@@ -26,6 +32,7 @@ class Environment extends \Twig_Environment implements SingletonInterface
         $loader->addLoader(new Typo3Loader());
 
         parent::__construct($loader, [
+            // fixme use TYPO3’s cache framework instead of filesystem for caching
             'cache' => static::getCacheDirectory(),
             'debug' => $GLOBALS['TYPO3_CONF_VARS']['FE']['debug'],
         ]);

@@ -21,7 +21,25 @@ use TYPO3\CMS\Frontend\ContentObject\AbstractContentObject;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 
 /**
- * @internal
+ * This class provides the TWIG content type in TypoScript.
+ *
+ * You can use it like this:
+ *
+ * page.10 = TWIG
+ * page.10 {
+ *     variables {
+ *         foo = TEXT
+ *         foo.value = BAZ!
+ *     }
+ *     template = EXT:twig_for_typo3/Resources/Private/template.html.twig
+ * }
+ *
+ * Please also see the implementation for FLUIDTEMPLATE.
+ *
+ * @see \TYPO3\CMS\Frontend\ContentObject\FluidTemplateContentObject
+ *
+ * @internal Don’t reference this class outside this package.
+ *   This class might be changed or removed at any time.
  */
 class TwigTemplateContentObject extends AbstractContentObject
 {

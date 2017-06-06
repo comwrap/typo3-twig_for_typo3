@@ -17,6 +17,9 @@ namespace Comwrap\Typo3\TwigForTypo3\Twig;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
+/**
+ * Adds the possibility to load twig files from TYPO3 extensions.
+ */
 class Typo3Loader implements \Twig_LoaderInterface
 {
     /**

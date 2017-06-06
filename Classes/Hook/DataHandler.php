@@ -20,7 +20,10 @@ use Symfony\Component\Filesystem\Filesystem;
 use TYPO3\CMS\Core\SingletonInterface;
 
 /**
- * @internal
+ * This hook will purge Twig’s template cache when TYPO3’s cache is cleared.
+ *
+ * @internal Don’t reference this class outside this package.
+ *   This class might be changed or removed at any time.
  */
 class DataHandler implements SingletonInterface
 {
