@@ -13,7 +13,7 @@
  * The TYPO3 project - inspiring people to share!
  */
 
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc']['t3twig'] =
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc']['twig_for_typo3'] =
     \Comwrap\Typo3\TwigForTypo3\Hook\DataHandler::class.'->clearTwigCache';
 
 $GLOBALS['TYPO3_CONF_VARS']['FE']['ContentObjects'] = \array_merge($GLOBALS['TYPO3_CONF_VARS']['FE']['ContentObjects'], [
