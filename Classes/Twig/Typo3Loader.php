@@ -15,7 +15,9 @@
 
 namespace Comwrap\Typo3\TwigForTypo3\Twig;
 
+use TYPO3\CMS\Core\Resource\Exception\FileDoesNotExistException;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Utility\PathUtility;
 
 /**
  * Adds the possibility to load twig files from TYPO3 extensions.
@@ -36,7 +38,11 @@ class Typo3Loader implements \Twig_LoaderInterface
     {
         $path = $this->findTemplate($name);
 
-        return new \Twig_Source(\file_get_contents($path), $name, $path);
+        if (file_exists($path)) {
+            return new \Twig_Source(\file_get_contents($path), $name, $path);
+        } else {
+            throw new FileDoesNotExistException('No file found for given path: ' . $path);
+        }
     }
 
     public function getCacheKey($name)
@@ -82,7 +88,14 @@ class Typo3Loader implements \Twig_LoaderInterface
             throw new \Twig_Error_Loader($this->errorCache[$name]);
         }
 
-        $path = GeneralUtility::getFileAbsFileName($name);
+        $templatePath = array_values($this->cache)[0];
+        
+        // if first entrance is set, then it's a partial (injected)
+        if (isset($templatePath)) {
+            $path = PathUtility::getAbsolutePathOfRelativeReferencedFileOrPath($templatePath, $name);
+        } else {
+            $path = GeneralUtility::getFileAbsFileName($name);
+        }
 
         if (!empty($path) || \is_file($path)) {
             return $this->cache[$name] = $path;
