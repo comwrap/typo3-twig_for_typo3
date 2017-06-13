@@ -29,7 +29,9 @@ class Environment extends \Twig_Environment implements SingletonInterface
     public function __construct()
     {
         $loader = new \Twig_Loader_Chain($this->getAdditionalLoaders());
+        $loader->addLoader(new \Twig_Loader_Filesystem($this->getTemplateStoragePath()));
         $loader->addLoader(new Typo3Loader());
+
 
         parent::__construct($loader, [
             // fixme use TYPO3’s cache framework instead of filesystem for caching
@@ -64,5 +66,17 @@ class Environment extends \Twig_Environment implements SingletonInterface
         }
 
         return [];
+    }
+
+    /**
+     * @return string/null
+     */
+    private function getTemplateStoragePath()
+    {
+        $settings = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['twig_for_typo3']);
+
+        $path = isset($settings['path']) ?  PATH_site . $settings['path'] : null ;
+
+        return $path;
     }
 }
