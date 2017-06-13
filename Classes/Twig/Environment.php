@@ -32,7 +32,6 @@ class Environment extends \Twig_Environment implements SingletonInterface
         $loader->addLoader(new \Twig_Loader_Filesystem($this->getTemplateStoragePath()));
         $loader->addLoader(new Typo3Loader());
 
-
         parent::__construct($loader, [
             // fixme use TYPO3’s cache framework instead of filesystem for caching
             'cache' => static::getCacheDirectory(),
