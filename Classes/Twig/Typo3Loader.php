@@ -38,11 +38,7 @@ class Typo3Loader implements \Twig_LoaderInterface
     {
         $path = $this->findTemplate($name);
 
-        if (file_exists($path)) {
-            return new \Twig_Source(\file_get_contents($path), $name, $path);
-        } else {
-            throw new FileDoesNotExistException('No file found for given path: ' . $path);
-        }
+        return new \Twig_Source(\file_get_contents($path), $name, $path);
     }
 
     public function getCacheKey($name)
@@ -74,7 +70,7 @@ class Typo3Loader implements \Twig_LoaderInterface
      *
      * @return false|string The template name or false
      */
-    private function findTemplate(string $name, bool $throw = false): string
+    private function findTemplate(string $name, bool $throw = true): string
     {
         if (isset($this->cache[$name])) {
             return $this->cache[$name];
@@ -84,18 +80,10 @@ class Typo3Loader implements \Twig_LoaderInterface
             if (!$throw) {
                 return false;
             }
-
             throw new \Twig_Error_Loader($this->errorCache[$name]);
         }
 
-        $templatePath = array_values($this->cache)[0];
-        
-        // if first entrance is set, then it's a partial (injected)
-        if (isset($templatePath)) {
-            $path = PathUtility::getAbsolutePathOfRelativeReferencedFileOrPath($templatePath, $name);
-        } else {
-            $path = GeneralUtility::getFileAbsFileName($name);
-        }
+        $path = GeneralUtility::getFileAbsFileName($name);
 
         if (!empty($path) || \is_file($path)) {
             return $this->cache[$name] = $path;
