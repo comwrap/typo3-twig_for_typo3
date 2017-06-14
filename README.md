@@ -33,6 +33,17 @@ page.10 {
 }
 ```
 
+You can add own root storage path for templates if you need in ext_conf_template settings. Templates and its partials
+should be stored at this folder and all paths start according to it.
+
+```
+{% include "/foo/template.html.twig" %}
+```
+
+```
+ template = /foo/template.html.twig
+```
+
 ## Custom loader
 
 If you have a self written loader to retrieve templates you can register a custom loader:

@@ -68,7 +68,7 @@ class Typo3Loader implements \Twig_LoaderInterface
      *
      * @return false|string The template name or false
      */
-    private function findTemplate(string $name, bool $throw = false): string
+    private function findTemplate(string $name, bool $throw = true): string
     {
         if (isset($this->cache[$name])) {
             return $this->cache[$name];
@@ -78,7 +78,6 @@ class Typo3Loader implements \Twig_LoaderInterface
             if (!$throw) {
                 return false;
             }
-
             throw new \Twig_Error_Loader($this->errorCache[$name]);
         }
 
