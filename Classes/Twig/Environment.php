@@ -29,7 +29,11 @@ class Environment extends \Twig_Environment implements SingletonInterface
     public function __construct()
     {
         $loader = new \Twig_Loader_Chain($this->getAdditionalLoaders());
-        $loader->addLoader(new \Twig_Loader_Filesystem($this->getTemplateStoragePath()));
+
+        if ($storagePath = $this->getTemplateStoragePath()) {
+            $loader->addLoader(new \Twig_Loader_Filesystem($storagePath));
+        }
+
         $loader->addLoader(new Typo3Loader());
 
         parent::__construct($loader, [
@@ -74,7 +78,7 @@ class Environment extends \Twig_Environment implements SingletonInterface
     {
         $settings = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['twig_for_typo3']);
 
-        $path = isset($settings['path']) ?  PATH_site . $settings['path'] : null ;
+        $path = isset($settings['rootTemplatePath']) ?  PATH_site . $settings['rootTemplatePath'] : null ;
 
         return $path;
     }

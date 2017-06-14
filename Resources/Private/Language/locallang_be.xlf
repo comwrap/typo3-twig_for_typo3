@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" product-name="twig_for_typo3"
+          date="2017-06-14T12:00:00+01:00">
+        <header/>
+        <body>
+
+            <trans-unit id="ext_conf_template-rootTemplatePath">
+                <source>Absolute path to templates folder</source>
+            </trans-unit>
+
+        </body>
+    </file>
+</xliff>
