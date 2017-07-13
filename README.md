@@ -1,5 +1,7 @@
 # Twig for TYPO3
 
+[![Build Status](https://travis-ci.org/comwrap/typo3-twig_for_typo3.svg?branch=master)](https://travis-ci.org/comwrap/typo3-twig_for_typo3)
+
 This TYPO3 extension integrates the Twig template engine.
 
 ## Installation
