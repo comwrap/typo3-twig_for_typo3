@@ -38,6 +38,13 @@ script:
     find . -name \*.php ! -path "./.Build/*" | parallel --gnu php -d display_errors=stderr -l {} > /dev/null \;;
   - >
     echo;
+    echo "Running php cs checks";
+    echo;
+    echo;
+    IFS=$'\n'; COMMIT_SCA_FILES=($(git diff --name-only --diff-filter=ACMRTUXB "${TRAVIS_COMMIT_RANGE}")); unset IFS;
+    .Build/bin/php-cs-fixer fix --config=.php_cs.dist -v --dry-run --stop-on-violation --using-cache=no --path-mode=intersection -- "${COMMIT_SCA_FILES[@]}";
+  - >
+    echo;
     echo "Running unit tests";
     echo;
     echo;
