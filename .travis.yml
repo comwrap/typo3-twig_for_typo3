@@ -35,7 +35,7 @@ script:
     echo "Running php lint";
     echo;
     echo;
-    find . -name \*.php ! -path "./.Build/*" | parallel --gnu php -d display_errors=stderr -l {} > /dev/null \;;
+    find . -name \*.php ! -path "./.Build/*" ! -path "./vendor/*" | parallel --gnu php -d display_errors=stderr -l {} > /dev/null \;;
   - >
     echo;
     echo "Running php cs checks";
