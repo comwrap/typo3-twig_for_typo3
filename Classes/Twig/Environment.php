@@ -76,9 +76,9 @@ class Environment extends \Twig_Environment implements SingletonInterface
      */
     private function getTemplateStoragePath()
     {
-        $settings = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['twig_for_typo3']);
+        $settings = \unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['twig_for_typo3']);
 
-        $path = isset($settings['rootTemplatePath']) ? GeneralUtility::getFileAbsFileName($settings['rootTemplatePath']) : null ;
+        $path = isset($settings['rootTemplatePath']) ? GeneralUtility::getFileAbsFileName($settings['rootTemplatePath']) : null;
 
         return $path;
     }
