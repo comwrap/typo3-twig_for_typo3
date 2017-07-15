@@ -4,6 +4,7 @@
     "homepage": "https://github.com/comwrap/typo3-twig_for_typo3",
     "type": "typo3-cms-extension",
     "license": "GPL-3.0+",
+    "version": "1.0.0",
     "authors": [
         {
             "name": "comwrap GmbH",
