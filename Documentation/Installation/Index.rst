@@ -13,6 +13,6 @@ Install the extension by running the following composer command:
 
 .. code-block:: bash
 
-	composer require typo3-ter/twig-for-typo3
+	composer require comwrap/typo3-twig_for_typo3
 
 Don’t forget to activate the extension in the extension manager.

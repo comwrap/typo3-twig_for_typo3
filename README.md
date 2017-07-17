@@ -12,7 +12,7 @@ find a [how to on the TYPO3 website](https://composer.typo3.org/).
 Install the extension with the following composer command:
 
 ```
-composer require comwrap/typo3-twig_for_typo3 dev-master
+composer require comwrap/typo3-twig_for_typo3
 ```
 
 ## Documentation
