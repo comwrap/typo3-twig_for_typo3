@@ -22,8 +22,8 @@
         "typo3/cms-core": "^7.6||^8.7||^9.0"
     },
     "require-dev": {
-        "nimut/testing-framework": "^1.1",
-        "phpunit/phpunit": "^5.6",
+        "nimut/testing-framework": "dev-master#bf87eca4de59f097b7a8fcbfdcd1657370cc24bd",
+        "phpunit/phpunit": "^6.0",
         "friendsofphp/php-cs-fixer": "^2.3"
     },
     "autoload": {

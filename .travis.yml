@@ -1,14 +1,21 @@
 language: php
 
 php:
-  - 7
+  - 7.0
   - 7.1
+  - 7.2
 
 env:
-  matrix:
-    - TYPO3_VERSION="^7.6"
-    - TYPO3_VERSION="^8.7"
-    - TYPO3_VERSION="^9.0"
+  - TYPO3_VERSION="^7.6"
+  - TYPO3_VERSION="^8.7"
+  - TYPO3_VERSION="^9.0"
+
+matrix:
+  exclude:
+    - php: 7.0
+      env: TYPO3_VERSION="^9.0"
+    - php: 7.1
+      env: TYPO3_VERSION="^9.0"
 
 sudo: false
 

@@ -36,7 +36,8 @@ return PhpCsFixer\Config::create()
         'simplified_null_return' => true,
         'header_comment' => [
             'header' => $headerComment,
-        ]
+        ],
+        'yoda_style' => false,
     ])
     ->setRiskyAllowed(true)
     ->setFinder(PhpCsFixer\Finder::create()->in('.'))
