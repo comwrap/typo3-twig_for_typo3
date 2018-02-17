@@ -19,10 +19,10 @@
     "require": {
         "symfony/filesystem": "^2.3||^3.0",
         "twig/twig": "^2.0",
-        "typo3/cms-core": "^7.6||^8.7||^9.0"
+        "typo3/cms-core": "^7.6||^8.7||^9.0",
     },
     "require-dev": {
-        "nimut/testing-framework": "dev-master#bf87eca4de59f097b7a8fcbfdcd1657370cc24bd",
+        "nimut/testing-framework": "^3.0.2",
         "phpunit/phpunit": "^6.0",
         "friendsofphp/php-cs-fixer": "^2.3"
     },

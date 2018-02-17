@@ -8,14 +8,14 @@ php:
 env:
   - TYPO3_VERSION="^7.6"
   - TYPO3_VERSION="^8.7"
-  - TYPO3_VERSION="^9.0"
+  - TYPO3_VERSION="^9.1"
 
 matrix:
   exclude:
     - php: 7.0
-      env: TYPO3_VERSION="^9.0"
+      env: TYPO3_VERSION="^9.1"
     - php: 7.1
-      env: TYPO3_VERSION="^9.0"
+      env: TYPO3_VERSION="^9.1"
 
 sudo: false
 
