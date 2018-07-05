@@ -32,7 +32,8 @@ class DataHandler implements SingletonInterface
         if ($parameters['cacheCmd'] === 'pages') {
             return;
         }
-
-        (new Filesystem())->remove(Environment::getCacheDirectory());
+        if (\file_exists(Environment::getCacheDirectory())) {
+            (new Filesystem())->remove(Environment::getCacheDirectory());
+        }
     }
 }
