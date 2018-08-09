@@ -9,6 +9,10 @@
                 <source>Absolute path to templates folder</source>
             </trans-unit>
 
+            <trans-unit id="ext_conf_template-disableTwigCache">
+                <source>Disable twig cache (issue with NFS)</source>
+            </trans-unit>
+
         </body>
     </file>
 </xliff>

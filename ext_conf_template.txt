@@ -1,2 +1,5 @@
 # cat=backend; type=string; label=LLL:EXT:twig_for_typo3/Resources/Private/Language/locallang_be.xlf:ext_conf_template-rootTemplatePath
 rootTemplatePath =
+
+# cat=backend; type=boolean; label=LLL:EXT:twig_for_typo3/Resources/Private/Language/locallang_be.xlf:ext_conf_template-disableTwigCache
+disableTwigCache = false

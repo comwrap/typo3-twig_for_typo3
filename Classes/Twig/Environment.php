@@ -35,10 +35,11 @@ class Environment extends \Twig_Environment implements SingletonInterface
         }
 
         $loader->addLoader(new Typo3Loader());
+        $settings = \unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['twig_for_typo3']);
 
         parent::__construct($loader, [
             // fixme use TYPO3’s cache framework instead of filesystem for caching
-            'cache' => static::getCacheDirectory(),
+            'cache' => $settings['disableTwigCache']? false : static::getCacheDirectory(),
             'debug' => $GLOBALS['TYPO3_CONF_VARS']['FE']['debug'],
         ]);
 
