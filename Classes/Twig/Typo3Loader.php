@@ -83,7 +83,7 @@ class Typo3Loader implements \Twig_LoaderInterface
 
         $path = GeneralUtility::getFileAbsFileName($name);
 
-        if (!empty($path) || \is_file($path)) {
+        if (!empty($path) && \is_file($path)) {
             return $this->cache[$name] = $path;
         }
 
